@@ -19,8 +19,9 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
           <main className="w-screen">
-            <div className="w-full p-2">
+            <div className="w-full flex items-center gap-2 p-2">
               <SidebarTrigger />
+              <div>🍌 스터디 이름은 무엇일까용</div>
             </div>
             {children}
           </main>

@@ -28,7 +28,7 @@ const items = [
   },
   {
     title: "돌려돌려 돌림판",
-    url: "#",
+    url: "/random-picker",
     icon: Dices,
   },
   {
