@@ -1,10 +1,13 @@
+import { CurriculumTable } from "@/components/curriculum-table";
 import { Button } from "@/components/ui/button";
+import { curriculum } from "@/module/curriculum/service";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const data = await curriculum.getAllCurriculum();
   return (
     <div className="flex flex-col gap-4 items-center py-6">
-      <section className="flex flex-col gap-4">
+      <section className="flex flex-col gap-4 w-full ">
         <div className="flex justify-around py-4">
           <a
             target="_blank"
@@ -32,6 +35,10 @@ export default function Home() {
               className="aspect-auto w-[180px] hover:scale-105 transition-all transform ease-in-out"
             />
           </a>
+        </div>
+        <div className="flex flex-col gap-4 px-4 ">
+          <div className="text-2xl font-bold">Curriculum</div>
+          <CurriculumTable data={data} />
         </div>
         <div className="flex flex-col gap-4 px-4 py-8">
           <div className="text-2xl font-bold">ground rules</div>
