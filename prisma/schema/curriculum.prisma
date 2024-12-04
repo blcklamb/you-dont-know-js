@@ -1,0 +1,44 @@
+model Curriculum {
+    id        Int      @unique @default(autoincrement())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    name  String
+    pages Int
+
+    partId Int @map("part_id")
+    weekId Int @map("week_id")
+
+    posts Post[]
+
+    part Part @relation(fields: [partId], references: [id], onDelete: Cascade)
+    week Week @relation(fields: [weekId], references: [id], onDelete: Cascade)
+
+    @@map("curriculum")
+}
+
+model Part {
+    id        Int      @unique @default(autoincrement())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    name String
+
+    curriculums Curriculum[]
+
+    @@map("part")
+}
+
+model Week {
+    id        Int      @unique @default(autoincrement())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    weekNumber Int       @map("week_number")
+    startDate  DateTime? @map("start_date") @db.Date
+    finishDate DateTime? @map("finish_date") @db.Date
+
+    curriculums Curriculum[]
+
+    @@map("week")
+}

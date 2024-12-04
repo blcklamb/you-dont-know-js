@@ -1,0 +1,52 @@
+model Post {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    postRichText String @map("post_rich_text")
+
+    userId       String @map("user_id")
+    curriculumId Int    @map("curriculum_id")
+
+    comments CommentOfPost[]
+    likes    LikeOfPost[]
+
+    user       User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+    curriculum Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+
+    @@map("post")
+}
+
+model CommentOfPost {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    commentRichText String @map("comment_rich_text")
+
+    userId   String  @map("user_id")
+    postId   String  @map("post_id")
+    parentId String? @map("parent_id")
+
+    replies CommentOfPost[] @relation("Replies")
+
+    user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+    post    Post           @relation(fields: [postId], references: [id], onDelete: Cascade)
+    comment CommentOfPost? @relation("Replies", fields: [parentId], references: [id], onDelete: Cascade)
+
+    @@map("comment_of_post")
+}
+
+model LikeOfPost {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now()) @db.Timestamptz(6)
+    updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+    userId String @map("user_id")
+    postId String @map("post_id")
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+    @@map("like_of_post")
+}

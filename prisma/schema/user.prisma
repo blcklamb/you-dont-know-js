@@ -1,0 +1,45 @@
+enum MemberRole {
+  GUEST
+  MEMBER
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
+
+  name           String?
+  image          String?
+  email          String?    @unique
+  emailVerified  DateTime?  @map("email_verified")
+  hashedPassword String?    @map("hashed_password")
+  role           MemberRole @default(GUEST)
+
+  accounts Account[]
+  sessions Session[]
+  posts    Post[]
+  comments CommentOfPost[]
+  likes    LikeOfPost[]
+
+  @@map("user")
+}
+
+model Account {
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String?
+  access_token             String?
+  expires_at               Int?
+  refresh_token_expires_in Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String?
+  session_state            String?
+  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("account")
+}
