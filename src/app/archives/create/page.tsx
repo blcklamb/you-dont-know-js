@@ -5,8 +5,6 @@ import { curriculum } from "@/module/curriculum/service";
 
 export default async function CreatePostPage() {
   const allCurriculums = await curriculum.groupAllCurriculum();
-  console.log(allCurriculums);
-  //   const
   return (
     <div className="px-4 flex flex-col gap-4">
       <WeekCurriculumSelect data={allCurriculums} />
