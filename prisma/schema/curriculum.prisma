@@ -1,5 +1,5 @@
 model Curriculum {
-    id        Int      @unique @default(autoincrement())
+    id        Int      @id @unique @default(autoincrement())
     createdAt DateTime @default(now()) @db.Timestamptz(6)
     updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
 
@@ -18,7 +18,7 @@ model Curriculum {
 }
 
 model Part {
-    id        Int      @unique @default(autoincrement())
+    id        Int      @id @unique @default(autoincrement())
     createdAt DateTime @default(now()) @db.Timestamptz(6)
     updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
 
@@ -30,7 +30,7 @@ model Part {
 }
 
 model Week {
-    id        Int      @unique @default(autoincrement())
+    id        Int      @id @unique @default(autoincrement())
     createdAt DateTime @default(now()) @db.Timestamptz(6)
     updatedAt DateTime @default(now()) @updatedAt @db.Timestamptz(6)
 

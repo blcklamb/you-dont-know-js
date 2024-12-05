@@ -14,6 +14,8 @@ model User {
   emailVerified  DateTime?  @map("email_verified")
   hashedPassword String?    @map("hashed_password")
   role           MemberRole @default(GUEST)
+  bio            String?
+  referenceLink  String?
 
   accounts Account[]
   sessions Session[]
