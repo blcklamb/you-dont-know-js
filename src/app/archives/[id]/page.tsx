@@ -1,7 +1,11 @@
 import { Viewer } from "@/components/editor/viewer";
 import { post } from "@/module/post/service";
 
-export default async function ({ params: { id } }: { params: { id: string } }) {
+export default async function ArchiveDetailPage({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
   const singlePost = await post.getSinglePost(id);
   return (
     <div className="px-2">

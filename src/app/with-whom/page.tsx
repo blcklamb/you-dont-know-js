@@ -8,7 +8,7 @@ export default async function WithWhomPage() {
       <div className="grid grid-cols-3 gap-4">
         {allMember.map((member) => {
           return (
-            <div className="flex flex-col gap-2 items-center">
+            <div key={member.id} className="flex flex-col gap-2 items-center">
               <Image
                 src={member.image || ""}
                 alt="member-image"

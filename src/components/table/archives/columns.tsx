@@ -2,7 +2,7 @@
 
 import { ArchivePostListProps } from "@/module/post/type";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowRight, Icon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
