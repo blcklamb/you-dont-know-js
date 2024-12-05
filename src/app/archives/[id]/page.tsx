@@ -12,8 +12,10 @@ export default async function ({ params: { id } }: { params: { id: string } }) {
         <div className="flex divide-x-2 min-w-20">
           <div className="p-2 min-w-20">파트</div>
           <div className="flex items-center p-2">
-            {singlePost?.curriculum.week.weekNumber}주차{" "}
-            {singlePost?.curriculum.name}
+            <div className="rounded-sm p-2 bg-secondary font-bold">
+              {singlePost?.curriculum.week.weekNumber}주차{" "}
+              {singlePost?.curriculum.name}
+            </div>
           </div>
         </div>
         <div className="p-4">{singlePost?.postRichText}</div>

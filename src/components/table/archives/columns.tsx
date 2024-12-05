@@ -12,7 +12,7 @@ export const columns: ColumnDef<ArchivePostListProps>[] = [
     header: "작성자",
     cell: ({ row }) => {
       return (
-        <div className="flex gap-2 items-center w-fit">
+        <div className="flex md:flex-row flex-col gap-2 items-center w-fit">
           <Image
             src={row.original.user.image || ""}
             alt="user image"
@@ -37,7 +37,7 @@ export const columns: ColumnDef<ArchivePostListProps>[] = [
     header: "커리큘럼",
     cell: ({ row }) => {
       return (
-        <div className="rounded-sm p-2 bg-secondary shrink-0 break-normal w-fit">
+        <div className="rounded-sm p-2 bg-secondary shrink-0 break-keep w-fit">
           {row.original.curriculum.name}
         </div>
       );
@@ -47,7 +47,7 @@ export const columns: ColumnDef<ArchivePostListProps>[] = [
     accessorKey: "comments",
     header: "댓글",
     cell: ({ row }) => {
-      return <div>{row.original.comments.length}</div>;
+      return <div className="">{row.original.comments.length}</div>;
     },
   },
   {
