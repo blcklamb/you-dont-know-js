@@ -1,5 +1,5 @@
-import { columns } from "@/components/curriculums/columns";
-import { DataTable } from "@/components/curriculums/data-table";
+import { columns } from "@/components/table/curriculums/columns";
+import { DataTable } from "@/components/table/data-table";
 import { Button } from "@/components/ui/button";
 import { curriculum } from "@/module/curriculum/service";
 import Image from "next/image";
@@ -39,7 +39,11 @@ export default async function Home() {
         </div>
         <div className="flex flex-col gap-4 px-4 ">
           <div className="text-2xl font-bold">Curriculum</div>
-          <DataTable data={data} columns={columns} />
+          <DataTable
+            data={data}
+            columns={columns}
+            caption="진행 상황에 따라 주차는 변경될 수 있습니다."
+          />
         </div>
         <div className="flex flex-col gap-4 px-4 py-8">
           <div className="text-2xl font-bold">ground rules</div>

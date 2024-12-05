@@ -21,11 +21,13 @@ import { Button } from "../ui/button";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  caption?: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  caption,
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -86,9 +88,9 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="text-center text-muted-foreground">
-        진행 상황에 따라 주차는 변경될 수 있습니다.
-      </div>
+      {caption && (
+        <div className="text-center text-muted-foreground">{caption}</div>
+      )}
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"

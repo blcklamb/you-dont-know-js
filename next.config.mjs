@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "image.yes24.com",
       },
+      {
+        protocol: "https",
+        hostname: "dtftpjqioqarxtmkrhpq.supabase.co",
+      },
     ],
   },
 };
