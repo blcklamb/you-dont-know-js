@@ -1,3 +1,4 @@
+import { Viewer } from "@/components/editor/viewer";
 import { post } from "@/module/post/service";
 
 export default async function ({ params: { id } }: { params: { id: string } }) {
@@ -18,7 +19,8 @@ export default async function ({ params: { id } }: { params: { id: string } }) {
             </div>
           </div>
         </div>
-        <div className="p-4">{singlePost?.postRichText}</div>
+        <Viewer data={singlePost?.postRichText || ""}></Viewer>
+        <div className="p-4">{}</div>
       </div>
     </div>
   );

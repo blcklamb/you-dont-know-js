@@ -16,3 +16,7 @@ export const HOME_CURRICULUM = Prisma.validator<Prisma.CurriculumInclude>()({
 export type HomeCurriculumTableProps = Prisma.CurriculumGetPayload<{
   include: typeof HOME_CURRICULUM;
 }>;
+
+export type CurriculumSelect = {
+  [key: number]: { id: number; name: string }[];
+};

@@ -97,3 +97,51 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.tiptap h1 {
+  @apply text-4xl font-bold;
+}
+
+.tiptap h2 {
+  @apply text-3xl font-bold;
+}
+
+.tiptap h3 {
+  @apply text-2xl font-bold;
+}
+
+.tiptap h4 {
+  @apply text-xl font-bold;
+}
+
+.tiptap blockquote {
+  @apply border-l-2 border-secondary pl-6;
+}
+
+.tiptap pre {
+  @apply inline-block rounded-lg bg-secondary p-2 text-sm font-medium;
+}
+
+.tiptap ul li {
+  @apply list-inside list-disc;
+}
+
+.tiptap ol li {
+  @apply list-inside list-decimal;
+}
+
+.tiptap li p {
+  @apply inline;
+}
+
+.tiptap a {
+  @apply text-blue-600 underline;
+}
+
+.tiptap p {
+  @apply h-6;
+}
+
+.tiptap img {
+  @apply w-full;
+}
